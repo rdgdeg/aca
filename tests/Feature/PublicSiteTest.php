@@ -190,6 +190,8 @@ class PublicSiteTest extends TestCase
         $this->assertNotFalse($calendar);
         $this->assertNotFalse($listing);
         $this->assertLessThan($listing, $calendar);
+        $this->assertStringContainsString('agenda-calendar hidden', $html);
+        $this->assertStringContainsString('md:grid', $html);
 
         $this->get('/fr/agenda')
             ->assertSee('Floralies')
@@ -327,7 +329,9 @@ class PublicSiteTest extends TestCase
             ->assertSee('https://www.ath.be', false)
             ->assertSee('Retour en haut')
             ->assertSee('Administration')
-            ->assertSee('/admin', false);
+            ->assertSee('/admin', false)
+            ->assertSee('Agence de communication')
+            ->assertSee('text-center md:grid-cols-4 md:text-left', false);
     }
 
     public function test_home_search_keeps_the_submit_label_inside_the_bar(): void

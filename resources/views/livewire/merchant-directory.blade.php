@@ -13,17 +13,17 @@
     </section>
 
     <div class="directory-filters">
-        <div class="mx-auto max-w-7xl px-4 py-4 lg:px-8">
-            <div class="flex flex-wrap gap-2">
+        <div class="mx-auto max-w-7xl px-4 py-3 md:py-4 lg:px-8">
+            <div class="flex flex-wrap gap-1.5 md:gap-2">
                 <button type="button" wire:click="$set('category', null)" class="pill {{ !$category ? 'is-active' : '' }}">{{ __('Tout afficher') }}</button>
                 @foreach ($categories as $cat)
                     <button type="button" wire:click="$set('category', '{{ $cat->t('slug') }}')" class="pill {{ $category === $cat->t('slug') ? 'is-active' : '' }}">{{ $cat->t('name') }}</button>
                 @endforeach
             </div>
 
-            <div class="mt-4 grid gap-4 md:grid-cols-[1fr_auto] items-end">
-                <input type="search" wire:model.live.debounce.300ms="q" placeholder="{{ __('Nom, activité, marque…') }}" class="w-full rounded-full border border-plum/20 bg-white px-5 py-3">
-                <div class="flex flex-wrap gap-2 text-sm">
+            <div class="mt-3 grid gap-3 md:mt-4 md:grid-cols-[1fr_auto] md:items-end">
+                <input type="search" wire:model.live.debounce.300ms="q" placeholder="{{ __('Nom, activité, marque…') }}" class="w-full rounded-full border border-plum/20 bg-white px-4 py-2 text-sm md:px-5 md:py-3">
+                <div class="flex flex-wrap gap-1.5 text-sm md:gap-2">
                     <label class="pill cursor-pointer {{ $open ? 'is-active' : '' }}"><input type="checkbox" wire:model.live="open" class="sr-only"> {{ __('Ouvert maintenant') }}</label>
                     <label class="pill cursor-pointer {{ $sunday ? 'is-active' : '' }}"><input type="checkbox" wire:model.live="sunday" class="sr-only"> {{ __('Ouvert le dimanche') }}</label>
                     <button type="button" class="pill {{ $sort === 'near' ? 'is-active' : '' }}" @click="navigator.geolocation.getCurrentPosition(p => $wire.setLocation(p.coords.latitude, p.coords.longitude))">{{ __('Près de moi') }}</button>
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="mt-3 flex flex-wrap gap-2 text-sm">
+            <div class="mt-2 flex flex-wrap gap-1.5 text-sm md:mt-3 md:gap-2">
                 @foreach ($allServices as $service)
                     <label class="pill cursor-pointer {{ in_array($service->key, $services) ? 'is-active' : '' }}">
                         <input type="checkbox" wire:model.live="services" value="{{ $service->key }}" class="sr-only">

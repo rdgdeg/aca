@@ -111,13 +111,13 @@
     </main>
 
     <footer class="bg-plum text-white">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-4 lg:px-8">
-            <div>
-                <img src="{{ asset('images/logo-aca.jpg') }}" alt="" class="h-20 w-20 mb-4 rounded-full bg-white object-contain">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 text-center md:grid-cols-4 md:text-left lg:px-8">
+            <div class="flex flex-col items-center md:items-start">
+                <img src="{{ asset('images/logo-aca.jpg') }}" alt="" class="mb-4 h-20 w-20 rounded-full bg-white object-contain">
                 <p class="font-serif text-2xl">ACA Ath</p>
                 <p class="mt-2 text-sm text-white/75">{{ __('Association des Commerçants et Artisans d’Ath, depuis 1911.') }}</p>
             </div>
-            <div>
+            <div class="flex flex-col items-center md:items-start">
                 <p class="text-xs uppercase tracking-[0.2em] text-gold mb-3">{{ __('Contact') }}</p>
                 <p>Rue Ernest Cambier 2/1<br>7800 Ath</p>
                 <p class="mt-2"><a class="hover:text-gold" href="mailto:president@athinfo.be">president@athinfo.be</a></p>
@@ -126,7 +126,7 @@
                     <x-facebook-icon class="h-4 w-4" />
                 </a>
             </div>
-            <div>
+            <div class="flex flex-col items-center md:items-start">
                 <p class="text-xs uppercase tracking-[0.2em] text-gold mb-3">{{ __('Explorer') }}</p>
                 <ul class="space-y-1">
                     <li><a class="text-white/85 hover:text-gold" href="{{ aca_url('merchants') }}">{{ __('Annuaire') }}</a></li>
@@ -138,7 +138,7 @@
                     <li><a class="text-white/85 hover:text-gold" href="{{ aca_url('press') }}">{{ __('Espace presse') }}</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="flex flex-col items-center md:items-start">
                 <p class="text-xs uppercase tracking-[0.2em] text-gold mb-3">{{ __('Légal') }}</p>
                 <ul class="space-y-1">
                     <li><a class="text-white/85 hover:text-gold" href="{{ aca_url('legal') }}">{{ __('Mentions légales') }}</a></li>
@@ -165,9 +165,13 @@
                 </div>
             </div>
         </div>
-        <p class="border-t border-white/15 py-4 text-center text-xs text-white/70 space-y-1">
-            <span class="block">© {{ date('Y') }} ACA Ath · {{ __('Centre-ville d’Ath') }}</span>
-            <span class="block">{{ __('Site web réalisé par') }} <a class="underline hover:text-gold" href="https://ldmedia.be" rel="noreferrer" target="_blank">LD Media</a> — {{ __('Agence de communication à Ath et Chièvres') }}</span>
+        <p class="border-t border-white/15 px-4 py-6 pb-28 text-center text-white/70 md:pb-6">
+            <span class="block text-xs">© {{ date('Y') }} ACA Ath · {{ __('Centre-ville d’Ath') }}</span>
+            <span class="mt-3 block text-xs">{{ __('Site web réalisé par') }}</span>
+            <a class="mt-1 inline-block hover:text-gold" href="https://ldmedia.be" rel="noreferrer" target="_blank">
+                <span class="block text-sm font-semibold text-white">LD Media</span>
+                <span class="block text-xs text-white/70">{{ __('Agence de communication') }}</span>
+            </a>
         </p>
     </footer>
     <div x-data="{ show: !localStorage.getItem('aca-cookies') }" x-show="show" x-cloak
