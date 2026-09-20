@@ -35,7 +35,7 @@ COPY --from=assets /app/public/build /app/public/build
 ENV APP_ENV=production \
     APP_DEBUG=false \
     APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA= \
-    APP_URL=https://aca-murex.vercel.app \
+    APP_URL=https://aca-seven-ebon.vercel.app \
     DB_CONNECTION=sqlite \
     LOG_CHANNEL=stderr \
     CACHE_STORE=array \
