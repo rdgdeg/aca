@@ -40,13 +40,6 @@ class SiteController extends Controller
             'categories', 'services', 'openingHours', 'closures', 'socialLinks', 'deals', 'events',
         ])->firstOrFail();
 
-        $similar = Merchant::published()
-            ->where('id', '!=', $merchant->id)
-            ->whereHas('categories', fn ($q) => $q->whereIn('categories.id', $merchant->categories->pluck('id')))
-            ->inRandomOrder()
-            ->take(3)
-            ->get();
-
         $status = app(OpeningStatus::class)->for($merchant);
         $hours = $merchant->openingHours->groupBy('weekday');
         $ordered = Merchant::published()->orderBy('name')->get();
@@ -58,7 +51,7 @@ class SiteController extends Controller
             ? null
             : $ordered[($index + 1) % $ordered->count()];
 
-        return view('pages.merchant', compact('merchant', 'similar', 'status', 'hours', 'previousMerchant', 'nextMerchant'))->with([
+        return view('pages.merchant', compact('merchant', 'status', 'hours', 'previousMerchant', 'nextMerchant'))->with([
             'title' => $merchant->name,
             'description' => $merchant->t('short_text') ?: $merchant->t('description'),
             'ogImage' => $merchant->cover(),

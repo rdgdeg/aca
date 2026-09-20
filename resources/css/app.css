@@ -205,8 +205,8 @@ h1, h2, h3, .font-serif {
 
 .merchant-hero {
     position: relative;
-    height: 360px;
-    max-height: 46vh;
+    height: 280px;
+    max-height: 32vh;
     overflow: hidden;
     background: #2A1240;
 }
@@ -235,60 +235,66 @@ h1, h2, h3, .font-serif {
 .merchant-body {
     position: relative;
     z-index: 2;
-    margin-top: -5.5rem;
-    padding-bottom: 4rem;
+    padding-top: 1.5rem;
+    padding-bottom: 3.5rem;
     background: #F6F1E8;
+}
+
+.merchant-body h1,
+.merchant-body h2,
+.merchant-body h3 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
 }
 
 .sheet-card {
     background: white;
-    border-radius: 1.25rem;
-    padding: 1.35rem 1.45rem;
-    border: 1px solid rgba(107, 43, 145, 0.07);
-    box-shadow: 0 12px 28px rgba(74, 28, 104, 0.08);
+    border-radius: 1rem;
+    padding: 1.35rem 1.5rem;
+    border: 1px solid rgba(107, 43, 145, 0.05);
+    box-shadow: 0 8px 22px rgba(74, 28, 104, 0.05);
 }
 
-.sheet-ico {
+.sheet-cat {
     display: inline-flex;
-    width: 2.35rem;
-    height: 2.35rem;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.8rem;
+    border-radius: 999px;
     background: var(--color-mist);
     color: var(--color-plum);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.22rem 0.7rem;
 }
 
 .sheet-action {
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 0.75rem;
-    border-radius: 0.9rem;
-    padding: 0.8rem 1rem;
-    font-size: 0.92rem;
-    font-weight: 700;
+    gap: 0.65rem;
+    border-radius: 0.7rem;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 600;
     color: var(--color-ink);
     background: #fff;
-    border: 1px solid rgba(107, 43, 145, 0.14);
-    transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    border: 1px solid rgba(107, 43, 145, 0.12);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .sheet-action-ico {
     display: inline-flex;
-    width: 1.85rem;
-    height: 1.85rem;
+    width: 1.35rem;
+    height: 1.35rem;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
 }
 
 .sheet-action:hover {
-    transform: translateX(4px);
     border-color: var(--color-plum);
     color: var(--color-plum);
-    box-shadow: 0 8px 18px rgba(107, 43, 145, 0.1);
 }
 
 .sheet-action.is-primary {
@@ -302,41 +308,54 @@ h1, h2, h3, .font-serif {
     color: white;
 }
 
-.sheet-action.is-gold {
-    background: var(--color-gold);
-    color: #3A1458;
-    border-color: transparent;
-}
-
-.sheet-action.is-gold:hover {
-    filter: brightness(0.97);
-    color: #3A1458;
-}
-
 .sheet-check {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.65rem 0;
-    border-bottom: 1px solid rgba(107, 43, 145, 0.08);
-    font-size: 0.95rem;
-}
-
-.sheet-check:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--color-ink);
 }
 
 .sheet-check-ico {
     display: inline-flex;
-    width: 1.45rem;
-    height: 1.45rem;
+    width: 1.15rem;
+    height: 1.15rem;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-plum) 12%, white);
     color: var(--color-plum);
+}
+
+.sheet-map {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.85rem;
+}
+
+.sheet-map #mini-map {
+    height: 13.5rem;
+    width: 100%;
+}
+
+.sheet-map-btn {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    z-index: 500;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    background: var(--color-plum-deep);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.4rem 0.8rem;
+    box-shadow: 0 6px 16px rgba(26, 16, 36, 0.18);
+}
+
+.sheet-map-btn:hover {
+    background: var(--color-plum);
 }
 
 .sheet-card tr.is-today td:first-child {
