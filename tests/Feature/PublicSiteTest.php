@@ -319,6 +319,7 @@ class PublicSiteTest extends TestCase
     {
         $this->get('/fr')
             ->assertOk()
+            ->assertSee('header-facebook hidden lg:inline-flex', false)
             ->assertSee('aria-label="Facebook"', false)
             ->assertSee('facebook.com/aca.commercantsdath', false)
             ->assertSee('Partenaires')
@@ -327,6 +328,14 @@ class PublicSiteTest extends TestCase
             ->assertSee('Retour en haut')
             ->assertSee('Administration')
             ->assertSee('/admin', false);
+    }
+
+    public function test_home_search_keeps_the_submit_label_inside_the_bar(): void
+    {
+        $this->get('/fr')
+            ->assertOk()
+            ->assertSee('search-bar mx-auto mt-8 flex w-full min-w-0', false)
+            ->assertSee('Rechercher');
     }
 
     public function test_agenda_filters_months_and_paginates(): void
@@ -351,7 +360,7 @@ class PublicSiteTest extends TestCase
 
         $this->get('/fr/commerce/'.$merchant->t('slug'))
             ->assertOk()
-            ->assertSee('Itinéraire')
+            ->assertSee('Voir sur Google Maps')
             ->assertSee('google.com/maps/dir', false)
             ->assertSee('Fiche précédente')
             ->assertSee('Fiche suivante');

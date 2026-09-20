@@ -9,7 +9,7 @@
 
 @theme {
     --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-    --font-serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+    --font-serif: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
     --color-cream: #FFFFFF;
     --color-ink: #1A1024;
     --color-plum: #6B2B91;
@@ -24,6 +24,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
 }
 
 body {
@@ -32,13 +33,14 @@ body {
     font-family: var(--font-sans);
     font-size: 0.95rem;
     line-height: 1.65;
+    overflow-x: clip;
 }
 
 h1, h2, h3, .font-serif {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    line-height: 1.22;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
 }
 
 .site-header {
@@ -51,6 +53,14 @@ h1, h2, h3, .font-serif {
     max-height: 680px;
     background-size: cover;
     background-position: center;
+}
+
+@media (max-width: 639px) {
+    .hero {
+        height: auto;
+        min-height: 26rem;
+        max-height: none;
+    }
 }
 
 .hero::after {
@@ -103,6 +113,7 @@ h1, h2, h3, .font-serif {
     color: white;
 }
 
+@layer components {
 .btn-plum {
     background: var(--color-plum);
     color: white;
@@ -154,15 +165,24 @@ h1, h2, h3, .font-serif {
 .btn-gold.is-white svg {
     color: #fff;
 }
+}
 
 .search-bar {
     background: white;
     border-radius: 999px;
     box-shadow: 0 18px 50px rgba(42, 36, 32, 0.12);
+    min-width: 0;
+    width: 100%;
 }
 
 .section-space {
     padding-block: 5rem;
+}
+
+@media (max-width: 639px) {
+    .section-space {
+        padding-block: 3.25rem;
+    }
 }
 
 .nav-link {
@@ -381,6 +401,12 @@ h1, h2, h3, .font-serif {
         height: 300px;
         min-height: 280px;
     }
+
+    .agenda-arrow {
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 1.35rem;
+    }
 }
 
 .listing-card {
@@ -498,6 +524,7 @@ h1, h2, h3, .font-serif {
     transform: scale(1.05);
 }
 
+@layer components {
 .icon-btn {
     width: 2.6rem;
     height: 2.6rem;
@@ -515,6 +542,7 @@ h1, h2, h3, .font-serif {
     background: var(--color-plum);
     color: white;
     border-color: var(--color-plum);
+}
 }
 
 .agenda-band {

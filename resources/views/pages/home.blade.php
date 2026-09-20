@@ -16,9 +16,9 @@
     <div class="relative z-10 mx-auto w-full max-w-4xl px-4 py-16 text-center lg:px-8">
         <p class="text-white/80 text-xs uppercase tracking-[0.35em]">Ath · Centre-ville</p>
         <h1 class="mt-4 font-serif text-4xl text-white md:text-5xl">{{ __('Le commerce athois, à ciel ouvert.') }}</h1>
-        <form action="{{ aca_url('merchants') }}" method="get" class="search-bar mx-auto mt-8 flex max-w-2xl items-center gap-3 px-2 py-2">
-            <input type="search" name="q" placeholder="{{ __('Que cherchez-vous ?') }}" class="flex-1 rounded-full px-5 py-3 outline-none bg-transparent text-left">
-            <button class="btn-plum">{{ __('Rechercher') }}</button>
+        <form action="{{ aca_url('merchants') }}" method="get" class="search-bar mx-auto mt-8 flex w-full min-w-0 max-w-2xl items-center gap-1.5 p-1.5 sm:gap-3 sm:p-2">
+            <input type="search" name="q" placeholder="{{ __('Que cherchez-vous ?') }}" class="min-w-0 flex-1 rounded-full bg-transparent px-3 py-2.5 text-left outline-none sm:px-5 sm:py-3">
+            <button type="submit" class="btn-plum shrink-0 px-3 py-2.5 text-sm sm:px-6">{{ __('Rechercher') }}</button>
         </form>
         <div class="mt-5 flex flex-wrap justify-center gap-2">
             <a href="{{ aca_url('weekend') }}" class="btn-gold text-sm py-2 px-4">{{ __('Week-end à Ath') }}</a>
@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="relative px-16 md:px-20">
+        <div class="relative px-12 sm:px-16 md:px-20">
             <button type="button" class="agenda-arrow is-left" @click="i = (i + events.length - 1) % events.length" aria-label="{{ __('Précédent') }}">‹</button>
             <button type="button" class="agenda-arrow is-right" @click="i = (i + 1) % events.length" aria-label="{{ __('Suivant') }}">›</button>
             <div class="grid gap-4 sm:grid-cols-3">

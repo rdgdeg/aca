@@ -43,9 +43,9 @@
     @endphp
 
     <header class="site-header sticky top-0 z-40 border-b border-black/5">
-        <div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 lg:px-8">
-            <a href="{{ aca_url('home') }}" class="flex items-center gap-3 shrink-0">
-                <img src="{{ asset('images/logo-aca.jpg') }}" alt="{{ __('Association des Commerçants et Artisans d’Ath') }}" class="h-20 w-20 rounded-full bg-white object-contain ring-1 ring-black/5">
+        <div class="mx-auto flex max-w-7xl min-w-0 items-center gap-3 px-4 py-3 lg:gap-4 lg:px-8">
+            <a href="{{ aca_url('home') }}" class="flex shrink-0 items-center gap-3">
+                <img src="{{ asset('images/logo-aca.jpg') }}" alt="{{ __('Association des Commerçants et Artisans d’Ath') }}" class="h-14 w-14 rounded-full bg-white object-contain ring-1 ring-black/5 sm:h-20 sm:w-20">
             </a>
 
             <nav class="hidden lg:flex flex-1 items-center justify-center gap-4">
@@ -66,7 +66,7 @@
                            class="px-1 {{ $locale === $code ? 'text-plum font-semibold' : 'text-ink/50 hover:text-plum' }}">{{ $meta['short'] }}</a>
                     @endforeach
                 </div>
-                <a href="{{ $facebook }}" class="icon-btn" aria-label="Facebook" rel="noreferrer" target="_blank">
+                <a href="{{ $facebook }}" class="icon-btn header-facebook hidden lg:inline-flex" aria-label="Facebook" rel="noreferrer" target="_blank">
                     <x-facebook-icon />
                 </a>
                 <a href="{{ aca_url('join') }}" class="btn-gold is-white hidden sm:inline-flex text-sm py-2 px-4">
@@ -82,15 +82,18 @@
         </div>
     </header>
 
-    <div x-data="{ open: false }" @open-menu.window="open = true" x-show="open" x-cloak class="menu-full fixed inset-0 z-50 p-8" style="display:none">
+    <div x-data="{ open: false }" @open-menu.window="open = true" x-show="open" x-cloak class="menu-full fixed inset-0 z-50 overflow-y-auto p-6" style="display:none">
         <button class="absolute right-6 top-6 text-sm tracking-widest uppercase" @click="open = false">{{ __('Fermer') }}</button>
-        <nav class="flex h-full flex-col items-center justify-center gap-6 font-serif text-3xl uppercase tracking-[0.12em]">
+        <nav class="flex min-h-full flex-col items-center justify-center gap-5 text-2xl font-semibold uppercase tracking-[0.08em]">
             @foreach ($nav as $item)
                 <a href="{{ aca_url($item['key']) }}">{{ $item['label'] }}</a>
             @endforeach
-            <a href="{{ aca_url('join') }}" class="btn-gold text-lg mt-4">{{ __('Devenir membre') }}</a>
-            <a href="{{ $facebook }}" class="icon-btn mt-2" aria-label="Facebook" rel="noreferrer" target="_blank">
-                <x-facebook-icon class="h-5 w-5" />
+            <a href="{{ aca_url('join') }}" class="btn-gold mt-4 text-base normal-case tracking-normal">{{ __('Devenir membre') }}</a>
+            <a href="{{ $facebook }}" class="mt-2 inline-flex items-center gap-3 font-sans text-base font-semibold normal-case tracking-normal text-plum" aria-label="Facebook" rel="noreferrer" target="_blank">
+                <span class="icon-btn" aria-hidden="true">
+                    <x-facebook-icon class="h-5 w-5" />
+                </span>
+                Facebook
             </a>
             <div class="flex gap-4 text-base font-sans mt-6">
                 @foreach (config('aca.locales') as $code => $meta)
