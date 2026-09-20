@@ -204,8 +204,157 @@ h1, h2, h3, .font-serif {
 }
 
 .merchant-hero {
-    height: 280px;
-    max-height: 36vh;
+    position: relative;
+    height: 360px;
+    max-height: 46vh;
+    overflow: hidden;
+    background: #2A1240;
+}
+
+.merchant-hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: merchant-kenburns 22s ease-out forwards;
+}
+
+.merchant-hero-chips {
+    position: absolute;
+    top: 1.1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.merchant-body {
+    position: relative;
+    z-index: 2;
+    margin-top: -5.5rem;
+    padding-bottom: 4rem;
+    background: #F6F1E8;
+}
+
+.sheet-card {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 1.35rem 1.45rem;
+    border: 1px solid rgba(107, 43, 145, 0.07);
+    box-shadow: 0 12px 28px rgba(74, 28, 104, 0.08);
+}
+
+.sheet-ico {
+    display: inline-flex;
+    width: 2.35rem;
+    height: 2.35rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8rem;
+    background: var(--color-mist);
+    color: var(--color-plum);
+}
+
+.sheet-action {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.9rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    background: #fff;
+    border: 1px solid rgba(107, 43, 145, 0.14);
+    transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.sheet-action-ico {
+    display: inline-flex;
+    width: 1.85rem;
+    height: 1.85rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.sheet-action:hover {
+    transform: translateX(4px);
+    border-color: var(--color-plum);
+    color: var(--color-plum);
+    box-shadow: 0 8px 18px rgba(107, 43, 145, 0.1);
+}
+
+.sheet-action.is-primary {
+    background: var(--color-plum);
+    color: white;
+    border-color: transparent;
+}
+
+.sheet-action.is-primary:hover {
+    background: var(--color-plum-deep);
+    color: white;
+}
+
+.sheet-action.is-gold {
+    background: var(--color-gold);
+    color: #3A1458;
+    border-color: transparent;
+}
+
+.sheet-action.is-gold:hover {
+    filter: brightness(0.97);
+    color: #3A1458;
+}
+
+.sheet-check {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(107, 43, 145, 0.08);
+    font-size: 0.95rem;
+}
+
+.sheet-check:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.sheet-check-ico {
+    display: inline-flex;
+    width: 1.45rem;
+    height: 1.45rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-plum) 12%, white);
+    color: var(--color-plum);
+}
+
+.sheet-card tr.is-today td:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.sheet-card tr.is-today td:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.sheet-card tr.is-today td {
+    background: var(--color-mist);
+    padding-inline: 0.55rem;
+}
+
+@keyframes merchant-kenburns {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
 }
 
 @media (max-width: 1023px) {
@@ -380,7 +529,31 @@ h1, h2, h3, .font-serif {
 }
 
 .reveal {
-    animation: fade-up 0.7s ease both;
+    transition: opacity 0.65s cubic-bezier(.22, 1, .36, 1), transform 0.65s cubic-bezier(.22, 1, .36, 1);
+    transition-delay: var(--delay, 0ms);
+}
+
+html.js .reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(18px);
+}
+
+html.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.js .reveal,
+    html.js .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .merchant-hero img {
+        animation: none;
+    }
 }
 
 .cat-chip {

@@ -52,6 +52,8 @@ class PublicSiteTest extends TestCase
     {
         $this->get('/fr/commerce/bella-donna')->assertOk()
             ->assertSee('Bella Donna')
+            ->assertSee('Contact')
+            ->assertSee('Horaires')
             ->assertSee('Suggérer une modification')
             ->assertSee('schema.org')
             ->assertSee('LocalBusiness');

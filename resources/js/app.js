@@ -1,7 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.reveal').forEach((el, index) => {
-        el.style.animationDelay = `${Math.min(index * 40, 400)}ms`;
+    const reveals = document.querySelectorAll('.reveal');
+    const show = (el) => el.classList.add('is-visible');
+
+    if (! ('IntersectionObserver' in window)) {
+        reveals.forEach(show);
+        return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                show(entry.target);
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+
+    reveals.forEach((el, index) => {
+        if (! el.style.transitionDelay) {
+            el.style.setProperty('--delay', `${Math.min(index * 50, 240)}ms`);
+        }
+
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 24 && rect.bottom > 0) {
+            show(el);
+        } else {
+            io.observe(el);
+        }
     });
+
+    window.setTimeout(() => reveals.forEach(show), 1200);
 });
 
 window.acaFavs = {
