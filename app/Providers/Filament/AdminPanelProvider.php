@@ -21,6 +21,7 @@ use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\HtmlString;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
@@ -43,7 +44,6 @@ class AdminPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->sidebarWidth('17.5rem')
             ->maxContentWidth(Width::SevenExtraLarge)
-            ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([
                 'primary' => Color::hex('#6B2B91'),
                 'warning' => Color::hex('#F0C400'),
@@ -85,7 +85,17 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->renderHook(
                 PanelsRenderHook::HEAD_END,
-                fn (): HtmlString => new HtmlString('<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">')
+                function (): HtmlString {
+                    $links = '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">';
+
+                    try {
+                        $links .= '<link rel="stylesheet" href="'.e(Vite::asset('resources/css/filament/admin/theme.css')).'">';
+                    } catch (\Throwable) {
+                        // Vite manifest is optional during tests or incomplete builds.
+                    }
+
+                    return new HtmlString($links);
+                }
             )
             ->renderHook(
                 PanelsRenderHook::SCRIPTS_AFTER,

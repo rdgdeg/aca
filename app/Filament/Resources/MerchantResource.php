@@ -16,6 +16,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Repeater\TableColumn;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
@@ -56,7 +57,7 @@ class MerchantResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
-            Section::make('Commerce')->schema([
+            Section::make('Commerce')->columnSpanFull()->schema([
                 TextInput::make('name')->label('Nom du commerce')->required()->maxLength(180)
                     ->live(onBlur: true)
                     ->afterStateUpdated(function (Set $set, Get $get, ?string $state): void {
@@ -79,18 +80,30 @@ class MerchantResource extends Resource
                 Select::make('status')->label('Statut')->options(collect(MerchantStatus::cases())->mapWithKeys(fn ($c) => [$c->value => $c->label()]))->default(MerchantStatus::Published->value)->required(),
                 Toggle::make('is_featured')->label('À la une'),
             ])->columns(1),
-            Section::make('Horaires')->schema([
-                Toggle::make('holiday_closed')->label('Fermé les jours fériés'),
-                Toggle::make('open_sundays')->label('Ouvert le dimanche'),
-                Repeater::make('openingHours')->label('Plages horaires')->relationship()->schema([
-                    Select::make('weekday')->label('Jour')->options([
-                        1 => 'Lundi', 2 => 'Mardi', 3 => 'Mercredi', 4 => 'Jeudi', 5 => 'Vendredi', 6 => 'Samedi', 7 => 'Dimanche',
-                    ])->required(),
-                    TimePicker::make('opens_at')->label('Ouverture')->seconds(false)->required(),
-                    TimePicker::make('closes_at')->label('Fermeture')->seconds(false)->required(),
-                ])->columns(3)->addActionLabel('Ajouter une plage'),
-            ]),
-            Section::make('Contact')->schema([
+            Section::make('Horaires')
+                ->columnSpanFull()
+                ->schema([
+                    Toggle::make('holiday_closed')->label('Fermé les jours fériés'),
+                    Toggle::make('open_sundays')->label('Ouvert le dimanche'),
+                    Repeater::make('openingHours')
+                        ->label('Plages horaires')
+                        ->relationship()
+                        ->compact()
+                        ->table([
+                            TableColumn::make('Jour')->markAsRequired(),
+                            TableColumn::make('Ouverture')->markAsRequired(),
+                            TableColumn::make('Fermeture')->markAsRequired(),
+                        ])
+                        ->schema([
+                            Select::make('weekday')->label('Jour')->hiddenLabel()->options([
+                                1 => 'Lundi', 2 => 'Mardi', 3 => 'Mercredi', 4 => 'Jeudi', 5 => 'Vendredi', 6 => 'Samedi', 7 => 'Dimanche',
+                            ])->required(),
+                            TimePicker::make('opens_at')->label('Ouverture')->hiddenLabel()->seconds(false)->native(false)->required(),
+                            TimePicker::make('closes_at')->label('Fermeture')->hiddenLabel()->seconds(false)->native(false)->required(),
+                        ])
+                        ->addActionLabel('Ajouter une plage'),
+                ]),
+            Section::make('Contact')->columnSpanFull()->schema([
                 TextInput::make('phone')->label('Téléphone')->tel(),
                 TextInput::make('email')->label('Email')->email(),
                 TextInput::make('website')->label('Site web')->url(),
@@ -101,7 +114,7 @@ class MerchantResource extends Resource
                     TextInput::make('url')->url()->required(),
                 ])->columns(2)->addActionLabel('Ajouter un réseau'),
             ])->columns(2),
-            Section::make('Plan')->schema([
+            Section::make('Plan')->columnSpanFull()->schema([
                 TextInput::make('address')->label('Adresse')->required()->columnSpanFull(),
                 TextInput::make('postal_code')->label('Code postal')->default('7800'),
                 TextInput::make('city')->label('Ville')->default('Ath'),

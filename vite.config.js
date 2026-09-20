@@ -13,8 +13,8 @@ export default defineConfig({
             ],
             refresh: true,
             fonts: [
-                bunny('Montserrat', { weights: [400, 500, 600, 700, 800] }),
-                bunny('Cormorant Garamond', { weights: [500, 600, 700], styles: ['normal', 'italic'] }),
+                bunny('Montserrat', { weights: [400, 500, 600, 700, 800], optimizedFallbacks: false }),
+                bunny('Cormorant Garamond', { weights: [500, 600, 700], styles: ['normal', 'italic'], optimizedFallbacks: false }),
             ],
         }),
         tailwindcss(),
