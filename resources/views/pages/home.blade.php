@@ -89,13 +89,13 @@
 
 <section class="band-alt">
     <div class="mx-auto max-w-7xl px-4 section-space lg:px-8">
-        <div class="reveal mb-10 flex items-end justify-between gap-4">
+        <div class="reveal mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
                 <span class="mark-bar"></span>
                 <p class="section-kicker">{{ __('Annuaire') }}</p>
                 <h2 class="font-serif text-3xl md:text-4xl mt-2">{{ __('Membres de l’ACA') }}</h2>
             </div>
-            <a href="{{ aca_url('merchants') }}" class="text-sm font-semibold text-plum">{{ __('Tout l’annuaire') }} →</a>
+            <a href="{{ aca_url('merchants') }}" class="btn-gold w-fit shrink-0 py-2.5 px-5 text-sm">{{ __('Tout l’annuaire') }} →</a>
         </div>
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             @foreach ($featured as $i => $merchant)
@@ -103,6 +103,9 @@
                     <x-merchant-card :merchant="$merchant" />
                 </div>
             @endforeach
+        </div>
+        <div class="mt-8 flex justify-center">
+            <a href="{{ aca_url('merchants') }}" class="btn-plum">{{ __('Tout l’annuaire') }} →</a>
         </div>
     </div>
 </section>

@@ -30,7 +30,7 @@ class PublicSiteTest extends TestCase
             ->assertSee('Les membres de l’ACA')
             ->assertSee('Bella Donna')
             ->assertSee('aca-map')
-            ->assertSee('lg:grid-cols-3', false);
+            ->assertSee('lg:grid-cols-4', false);
         $this->get('/nl/handelaars')->assertOk()->assertSee('Handelaars');
         $this->get('/en/shops')->assertOk()->assertSee('Shops');
     }
@@ -39,7 +39,7 @@ class PublicSiteTest extends TestCase
     {
         Livewire::test(MerchantDirectory::class)
             ->assertSee('Bella Donna')
-            ->assertSeeHtml('lg:grid-cols-3')
+            ->assertSeeHtml('lg:grid-cols-4')
             ->assertDontSee('Showing')
             ->assertSee('1 à 12 sur')
             ->call('gotoPage', 2)

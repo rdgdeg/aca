@@ -85,7 +85,7 @@
     </section>
 
     <section id="annuaire-liste" class="mx-auto max-w-7xl px-4 pb-12 lg:px-8">
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             @forelse ($merchants as $merchant)
                 <x-merchant-card :merchant="$merchant" :status="$opening->for($merchant)" :selected="$selected === $merchant->id" />
             @empty
