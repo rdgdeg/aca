@@ -15,7 +15,7 @@
 <section class="hero relative flex items-center" style="background-image: url('{{ $hero }}')">
     <div class="relative z-10 mx-auto w-full max-w-4xl px-4 py-16 text-center lg:px-8">
         <p class="text-white/80 text-xs uppercase tracking-[0.35em]">Ath · Centre-ville</p>
-        <h1 class="mt-4 font-serif text-4xl text-white md:text-5xl">{{ __('Le commerce athois, à ciel ouvert.') }}</h1>
+        <h1 class="mt-4 text-2xl font-semibold text-white md:text-3xl">{{ __('Le commerce athois, à ciel ouvert.') }}</h1>
         <form action="{{ aca_url('merchants') }}" method="get" class="search-bar mx-auto mt-8 flex w-full min-w-0 max-w-2xl items-center gap-1.5 p-1.5 sm:gap-3 sm:p-2">
             <input type="search" name="q" placeholder="{{ __('Que cherchez-vous ?') }}" class="min-w-0 flex-1 rounded-full bg-transparent px-3 py-2.5 text-left outline-none sm:px-5 sm:py-3">
             <button type="submit" class="btn-plum shrink-0 px-3 py-2.5 text-sm sm:px-6">{{ __('Rechercher') }}</button>
@@ -34,7 +34,7 @@
         <div class="mb-8 grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:items-end">
             <div>
                 <span class="mark-bar bg-gold"></span>
-                <h2 class="font-serif text-3xl text-plum md:text-4xl">{{ __('À vos agendas !') }}</h2>
+                <h2 class="text-xl font-semibold text-plum md:text-2xl">{{ __('À vos agendas !') }}</h2>
             </div>
             <div class="lg:text-right">
                 <p class="text-sm text-ink/70 lg:ml-auto lg:max-w-md">{{ __('Entre traditions, animations de centre-ville et vitrines ouvertes : il y a toujours un bon motif pour venir à Ath.') }}</p>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="p-4">
-                            <p class="font-serif text-xl leading-snug" x-text="events[(i + offset) % events.length].title"></p>
+                            <p class="text-lg font-semibold leading-snug" x-text="events[(i + offset) % events.length].title"></p>
                             <p class="mt-2 flex items-center gap-1 text-xs text-ink/55">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
                                 <span x-text="events[(i + offset) % events.length].location"></span>
@@ -75,7 +75,7 @@
         <div class="reveal">
             <span class="mark-bar"></span>
             <p class="section-kicker">{{ __('L’association') }}</p>
-            <h2 class="font-serif text-3xl md:text-4xl mt-3">{{ __('Depuis 1911, le commerce athois.') }}</h2>
+            <h2 class="mt-3 text-xl font-semibold md:text-2xl">{{ __('Depuis 1911, le commerce athois.') }}</h2>
             <p class="mt-5 text-ink/75 max-w-xl">{{ __('L’Association des Commerçants et Artisans d’Ath anime le centre-ville, défend les vitrines indépendantes et rassemble les membres autour de la Grand-Place, de la Ducasse et des rendez-vous de l’année.') }}</p>
             <a href="{{ aca_url('contact') }}" class="btn-plum mt-7">{{ __('Découvrir l’ACA') }}</a>
         </div>
@@ -93,7 +93,7 @@
             <div>
                 <span class="mark-bar"></span>
                 <p class="section-kicker">{{ __('Annuaire') }}</p>
-                <h2 class="font-serif text-3xl md:text-4xl mt-2">{{ __('Membres de l’ACA') }}</h2>
+                <h2 class="mt-2 text-xl font-semibold md:text-2xl">{{ __('Membres de l’ACA') }}</h2>
             </div>
             <a href="{{ aca_url('merchants') }}" class="btn-gold w-fit shrink-0 py-2.5 px-5 text-sm">{{ __('Tout l’annuaire') }} →</a>
         </div>
@@ -117,7 +117,7 @@
                 <div>
                     <span class="mark-bar bg-gold"></span>
                     <p class="section-kicker text-gold">ACA</p>
-                    <h2 class="font-serif text-3xl text-white md:text-4xl mt-2">{{ __('Rejoindre l’association') }}</h2>
+                    <h2 class="mt-2 text-xl font-semibold text-white md:text-2xl">{{ __('Rejoindre l’association') }}</h2>
                     <p class="mt-4 max-w-md text-white/80">{{ __('Envoyez votre demande : le comité valide, puis crée la fiche.') }}</p>
                 </div>
                 <ul class="mt-8 space-y-4">
@@ -145,7 +145,7 @@
                 </ul>
             </div>
             <div class="reveal rounded-3xl bg-white p-6 text-ink shadow-lg md:p-8">
-                <p class="font-serif text-xl">{{ __('Devenir membre') }}</p>
+                <p class="text-lg font-semibold">{{ __('Devenir membre') }}</p>
                 <p class="mt-1 text-sm text-ink/60">{{ __('Réponse du comité sous peu.') }}</p>
                 @if ($joinForm)
                     <div class="mt-5">
@@ -164,7 +164,7 @@
         <div class="reveal mb-10 text-center">
             <span class="mark-bar mx-auto"></span>
             <p class="section-kicker">{{ __('Actualités') }}</p>
-            <h2 class="font-serif text-3xl md:text-4xl mt-2">{{ __('La vie de l’association') }}</h2>
+            <h2 class="mt-2 text-xl font-semibold md:text-2xl">{{ __('La vie de l’association') }}</h2>
         </div>
         <div class="relative px-4 py-10 md:px-10 md:py-14">
             <div class="absolute inset-y-4 left-8 right-8 rounded-[2.5rem] bg-gold/40 md:inset-y-6 md:left-16 md:right-16"></div>
@@ -174,7 +174,7 @@
                         <img src="{{ $post->cover() }}" alt="" class="aspect-[16/10] w-full object-cover">
                         <div class="flex flex-1 flex-col p-5">
                             <p class="text-xs text-ink/50">{{ optional($post->published_at)->translatedFormat('d F Y') }}</p>
-                            <h3 class="font-serif text-xl mt-1">{{ $post->t('title') }}</h3>
+                            <h3 class="mt-1 text-lg font-semibold">{{ $post->t('title') }}</h3>
                             <p class="text-sm text-ink/70 mt-2 line-clamp-3">{{ $post->t('excerpt') }}</p>
                             <a href="{{ aca_url('post', ['slug' => $post->t('slug')]) }}" class="mt-auto pt-4 text-sm font-medium text-plum/70 hover:text-plum">{{ __('Lire la fiche') }} →</a>
                         </div>

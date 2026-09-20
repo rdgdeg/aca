@@ -36,11 +36,11 @@ body {
     overflow-x: clip;
 }
 
-h1, h2, h3, .font-serif {
+h1, h2, h3 {
     font-family: var(--font-sans);
     font-weight: 600;
     letter-spacing: -0.02em;
-    line-height: 1.25;
+    line-height: 1.3;
 }
 
 .site-header {

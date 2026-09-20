@@ -6,7 +6,7 @@
     <div class="absolute inset-0 bg-gradient-to-t from-cream to-black/30"></div>
     <div class="absolute bottom-0 mx-auto w-full max-w-7xl px-4 pb-8 lg:px-8">
         <p class="text-sm text-plum">{{ optional($event->starts_at)->translatedFormat('l d F Y · H:i') }}</p>
-        <h1 class="font-serif text-4xl">{{ $event->t('title') }}</h1>
+        <h1 class="text-2xl font-semibold md:text-3xl">{{ $event->t('title') }}</h1>
     </div>
 </section>
 <section class="mx-auto max-w-3xl px-4 py-12">
@@ -23,7 +23,7 @@
     </div>
     @if ($event->form && $event->registrationOpen())
         <div class="mt-12 rounded-2xl bg-white p-6">
-            <h2 class="font-serif text-2xl mb-2">{{ __('Inscription') }}</h2>
+            <h2 class="mb-2 text-lg font-semibold">{{ __('Inscription') }}</h2>
             @if ($event->capacity)
                 <p class="text-sm mb-4">{{ __(':n places restantes', ['n' => $event->remainingPlaces()]) }}</p>
             @endif

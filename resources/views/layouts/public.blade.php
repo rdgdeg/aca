@@ -84,7 +84,7 @@
 
     <div x-data="{ open: false }" @open-menu.window="open = true" x-show="open" x-cloak class="menu-full fixed inset-0 z-50 overflow-y-auto p-6" style="display:none">
         <button class="absolute right-6 top-6 text-sm tracking-widest uppercase" @click="open = false">{{ __('Fermer') }}</button>
-        <nav class="flex min-h-full flex-col items-center justify-center gap-5 text-2xl font-semibold uppercase tracking-[0.08em]">
+        <nav class="flex min-h-full flex-col items-center justify-center gap-5 text-xl font-semibold uppercase tracking-[0.08em]">
             @foreach ($nav as $item)
                 <a href="{{ aca_url($item['key']) }}">{{ $item['label'] }}</a>
             @endforeach
@@ -114,7 +114,7 @@
         <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 text-center md:grid-cols-4 md:text-left lg:px-8">
             <div class="flex flex-col items-center md:items-start">
                 <img src="{{ asset('images/logo-aca.jpg') }}" alt="" class="mb-4 h-20 w-20 rounded-full bg-white object-contain">
-                <p class="font-serif text-2xl">ACA Ath</p>
+                <p class="text-xl font-semibold">ACA Ath</p>
                 <p class="mt-2 text-sm text-white/75">{{ __('Association des Commerçants et Artisans d’Ath, depuis 1911.') }}</p>
             </div>
             <div class="flex flex-col items-center md:items-start">
@@ -158,7 +158,7 @@
                 <p class="text-xs uppercase tracking-[0.2em] text-gold">{{ __('Partenaires') }}</p>
                 <div class="mt-4 flex flex-wrap items-center justify-center gap-4">
                     @foreach (config('aca.partners') as $partner)
-                        <a href="{{ $partner['url'] }}" rel="noreferrer" target="_blank" class="rounded-xl bg-white px-5 py-3 font-serif text-lg text-plum hover:bg-gold">
+                        <a href="{{ $partner['url'] }}" rel="noreferrer" target="_blank" class="rounded-xl bg-white px-5 py-3 text-base font-semibold text-plum hover:bg-gold">
                             {{ $partner['name'] }}
                         </a>
                     @endforeach

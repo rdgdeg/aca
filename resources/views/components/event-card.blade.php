@@ -7,7 +7,7 @@
         @if ($event->type)
             <p class="text-xs font-bold uppercase tracking-[0.16em] text-plum">{{ $event->type->t('name') }}</p>
         @endif
-        <h3 class="mt-1 font-serif text-2xl">{{ $event->t('title') }}</h3>
+        <h3 class="mt-1 text-lg font-semibold">{{ $event->t('title') }}</h3>
         <p class="mt-2 mb-4 text-sm text-ink/70">{{ $event->location }}</p>
         <div class="mt-auto">
             <span class="btn-plum w-full text-sm py-2.5 px-4">{{ __('En savoir plus') }} →</span>

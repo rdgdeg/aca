@@ -3,7 +3,7 @@
 @section('content')
 <section class="mx-auto max-w-7xl px-4 pt-12 lg:px-8">
     <p class="text-xs uppercase tracking-[0.25em] text-plum">{{ __('Parking & accès') }}</p>
-    <h1 class="font-serif text-4xl mt-2">{{ __('Venir en ville, sans le casse-tête') }}</h1>
+    <h1 class="mt-2 text-2xl font-semibold md:text-3xl">{{ __('Venir en ville, sans le casse-tête') }}</h1>
     <p class="mt-4 max-w-2xl text-ink/70">{{ __('Garez-vous, marchez cinq minutes, et le centre-ville est à vous. Un tap ouvre l’itinéraire.') }}</p>
 </section>
 
@@ -25,7 +25,7 @@
                 }
             @endphp
             <article class="rounded-3xl bg-white p-5 shadow-sm">
-                <h2 class="font-serif text-2xl">{{ $spot['name'] }}</h2>
+                <h2 class="text-xl font-semibold">{{ $spot['name'] }}</h2>
                 <p class="mt-2 text-sm text-ink/70">{{ $spot['hint'] }}</p>
                 <a href="{{ $maps }}" class="btn-plum mt-5 inline-flex text-sm py-2 px-4" target="_blank" rel="noreferrer">{{ __('Itinéraire') }} →</a>
             </article>

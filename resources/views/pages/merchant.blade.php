@@ -28,7 +28,7 @@
         <div class="grid items-start gap-4 lg:grid-cols-[1.35fr_.75fr]">
             <div class="grid gap-4">
                 <article class="sheet-card reveal">
-                    <h1 class="text-[1.7rem] font-semibold tracking-tight text-ink md:text-[1.9rem]">{{ $merchant->name }}</h1>
+                    <h1 class="text-2xl font-semibold tracking-tight text-ink md:text-[1.65rem]">{{ $merchant->name }}</h1>
                     @if ($category)
                         <p class="mt-2">
                             <span class="sheet-cat">{{ $category->t('name') }}</span>

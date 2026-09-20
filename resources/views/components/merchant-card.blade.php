@@ -26,7 +26,7 @@
     </a>
     <div class="flex flex-1 flex-col p-4">
         <div class="flex items-start justify-between gap-3">
-            <h3 class="font-serif text-xl leading-snug">
+            <h3 class="text-lg font-semibold leading-snug">
                 <a href="{{ aca_url('merchant', ['slug' => $merchant->t('slug')]) }}" class="hover:text-plum" @click.stop>{{ $merchant->name }}</a>
             </h3>
             <button type="button"

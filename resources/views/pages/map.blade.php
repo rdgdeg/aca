@@ -3,7 +3,7 @@
 @section('content')
 <section class="mx-auto max-w-7xl px-4 pt-12 lg:px-8">
     <p class="text-xs uppercase tracking-[0.25em] text-plum">{{ __('Carte') }}</p>
-    <h1 class="font-serif text-4xl mt-2">{{ __('Ath sur le bout des doigts') }}</h1>
+    <h1 class="mt-2 text-2xl font-semibold md:text-3xl">{{ __('Ath sur le bout des doigts') }}</h1>
     <div class="mt-6 flex flex-wrap gap-2" id="map-filters">
         <button data-cat="" class="pill is-active">{{ __('Tout afficher') }}</button>
         @foreach ($categories as $category)

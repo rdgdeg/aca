@@ -6,7 +6,7 @@
             <input type="text" wire:model="website" class="hidden" tabindex="-1" autocomplete="off">
             @foreach ($form->fields as $field)
                 @if (in_array($field->type, ['heading', 'help']))
-                    <p class="font-serif text-xl pt-2 sm:col-span-2">{{ $field->t('label') }}</p>
+                    <p class="pt-2 text-lg font-semibold sm:col-span-2">{{ $field->t('label') }}</p>
                     @if ($field->t('help'))<p class="text-sm text-ink/60 sm:col-span-2">{{ $field->t('help') }}</p>@endif
                     @continue
                 @endif
