@@ -3,7 +3,7 @@
 @section('content')
 <section class="mx-auto max-w-6xl px-4 py-12 lg:px-8">
     <p class="text-xs uppercase tracking-[0.25em] text-plum">{{ __('Actualités') }}</p>
-    <h1 class="font-serif text-5xl mt-2">{{ __('La vie de l’association') }}</h1>
+    <h1 class="font-serif text-4xl mt-2">{{ __('La vie de l’association') }}</h1>
     <div class="mt-10 grid gap-4 md:grid-cols-6">
         @foreach ($posts as $post)
             @php

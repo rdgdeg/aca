@@ -3,7 +3,7 @@
 @section('content')
 <section class="mx-auto max-w-7xl px-4 pt-12 lg:px-8">
     <p class="text-xs uppercase tracking-[0.25em] text-plum">{{ __('Parking & accès') }}</p>
-    <h1 class="font-serif text-5xl mt-2">{{ __('Venir en ville, sans le casse-tête') }}</h1>
+    <h1 class="font-serif text-4xl mt-2">{{ __('Venir en ville, sans le casse-tête') }}</h1>
     <p class="mt-4 max-w-2xl text-ink/70">{{ __('Garez-vous, marchez cinq minutes, et le centre-ville est à vous. Un tap ouvre l’itinéraire.') }}</p>
 </section>
 

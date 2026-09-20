@@ -24,9 +24,9 @@
         @endif
         <span class="absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold {{ $badgeClass }}">{{ $status['label'] }}</span>
     </a>
-    <div class="flex flex-1 flex-col p-5">
+    <div class="flex flex-1 flex-col p-4">
         <div class="flex items-start justify-between gap-3">
-            <h3 class="font-serif text-2xl leading-tight">
+            <h3 class="font-serif text-xl leading-snug">
                 <a href="{{ aca_url('merchant', ['slug' => $merchant->t('slug')]) }}" class="hover:text-plum" @click.stop>{{ $merchant->name }}</a>
             </h3>
             <button type="button"

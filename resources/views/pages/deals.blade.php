@@ -3,7 +3,7 @@
 @section('content')
 <section class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
     <p class="text-xs uppercase tracking-[0.25em] text-gold">{{ __('Bons plans') }}</p>
-    <h1 class="font-serif text-5xl mt-2">{{ __('Envies du moment') }}</h1>
+    <h1 class="font-serif text-4xl mt-2">{{ __('Envies du moment') }}</h1>
     <div class="mt-10 grid gap-6 md:grid-cols-3">
         @forelse ($deals as $deal)
             <article class="photo-card">

@@ -19,7 +19,7 @@
 @endphp
 <section class="mx-auto max-w-7xl px-4 pt-12 lg:px-8">
     <p class="text-xs uppercase tracking-[0.25em] text-plum">{{ __('Agenda') }}</p>
-    <h1 class="font-serif text-5xl mt-2">{{ __('La ville en mouvement') }}</h1>
+    <h1 class="font-serif text-4xl mt-2">{{ __('La ville en mouvement') }}</h1>
     <div class="mt-6 flex flex-wrap gap-2">
         <a href="{{ aca_url('events') }}" class="pill {{ !request('archives') && !request('month') && !request('type') ? 'is-active' : '' }}">{{ __('À venir') }}</a>
         <a href="{{ aca_url('events') }}?archives=1" class="pill {{ request('archives') ? 'is-active' : '' }}">{{ __('Archives') }}</a>

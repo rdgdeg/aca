@@ -3,7 +3,7 @@
 @section('content')
 <section class="mx-auto max-w-7xl px-4 pt-12 lg:px-8">
     <p class="text-xs uppercase tracking-[0.25em] text-gold">{{ __('Week-end à Ath') }}</p>
-    <h1 class="font-serif text-5xl mt-2">{{ $friday->translatedFormat('d') }} – {{ $sunday->translatedFormat('d F Y') }}</h1>
+    <h1 class="font-serif text-4xl mt-2">{{ $friday->translatedFormat('d') }} – {{ $sunday->translatedFormat('d F Y') }}</h1>
     <p class="mt-4 max-w-2xl text-ink/70">{{ __('Les rendez-vous du week-end et les vitrines ouvertes : un plan simple pour samedi et dimanche.') }}</p>
     <div class="mt-6 flex flex-wrap gap-2">
         <a href="{{ aca_url('events') }}" class="pill">{{ __('Agenda') }}</a>

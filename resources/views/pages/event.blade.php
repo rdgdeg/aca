@@ -6,7 +6,7 @@
     <div class="absolute inset-0 bg-gradient-to-t from-cream to-black/30"></div>
     <div class="absolute bottom-0 mx-auto w-full max-w-7xl px-4 pb-8 lg:px-8">
         <p class="text-sm text-plum">{{ optional($event->starts_at)->translatedFormat('l d F Y · H:i') }}</p>
-        <h1 class="font-serif text-5xl">{{ $event->t('title') }}</h1>
+        <h1 class="font-serif text-4xl">{{ $event->t('title') }}</h1>
     </div>
 </section>
 <section class="mx-auto max-w-3xl px-4 py-12">

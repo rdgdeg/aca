@@ -19,7 +19,7 @@ class SiteController extends Controller
     public function home()
     {
         $categories = Category::root()->get();
-        $featured = Merchant::published()->with(['categories', 'openingHours', 'closures'])->inRandomOrder()->take(6)->get();
+        $featured = Merchant::published()->with(['categories', 'openingHours', 'closures'])->inRandomOrder()->take(8)->get();
         $spotlight = Event::spotlight();
         $events = Event::upcoming()->with(['type', 'merchant'])->take(8)->get();
         if ($spotlight) {

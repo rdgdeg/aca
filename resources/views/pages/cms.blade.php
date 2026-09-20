@@ -3,7 +3,7 @@
 @section('content')
 <section class="mx-auto max-w-3xl px-4 py-16">
     @if ($page)
-        <h1 class="font-serif text-5xl">{{ $page->t('title') }}</h1>
+        <h1 class="font-serif text-4xl">{{ $page->t('title') }}</h1>
         <div class="mt-8 space-y-8">
             @foreach ($page->blocksForLocale() as $block)
                 @if (($block['type'] ?? 'text') === 'text')
@@ -19,7 +19,7 @@
             @endforeach
         </div>
     @else
-        <h1 class="font-serif text-5xl">{{ __('Page') }}</h1>
+        <h1 class="font-serif text-4xl">{{ __('Page') }}</h1>
         <p class="mt-6">{{ __('Contenu à paraître.') }}</p>
     @endif
 </section>

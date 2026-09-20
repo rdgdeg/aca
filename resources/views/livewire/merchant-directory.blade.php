@@ -8,7 +8,7 @@
 >
     <section class="mx-auto max-w-7xl px-4 pt-10 pb-4 lg:px-8">
         <p class="text-xs uppercase tracking-[0.25em] text-plum">{{ __('Annuaire') }}</p>
-        <h1 class="font-serif text-4xl mt-2 md:text-5xl">{{ __('Les membres de l’ACA') }}</h1>
+        <h1 class="font-serif text-3xl mt-2 md:text-4xl">{{ __('Les membres de l’ACA') }}</h1>
         <p class="mt-3 max-w-2xl text-ink/70">{{ $merchants->total() }} {{ __('adresses à parcourir, filtrer, partager.') }}</p>
     </section>
 

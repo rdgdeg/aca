@@ -208,10 +208,11 @@ class PublicSiteTest extends TestCase
         $response
             ->assertSee('Floralies')
             ->assertSee('Une fiche dans l’annuaire')
-            ->assertSee('floralies.jpg');
+            ->assertSee('floralies.jpg')
+            ->assertSee('lg:grid-cols-4', false);
         $this->assertStringNotContainsString('Que cherchez-vous', $header);
         $this->assertStringNotContainsString('Bons plans', $header);
-        $this->assertStringContainsString('footer class="mt-16 bg-plum text-white"', $html);
+        $this->assertStringContainsString('footer class="bg-plum text-white"', $html);
     }
 
     public function test_featured_event_is_spotlight_otherwise_nearest(): void

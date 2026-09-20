@@ -4,7 +4,7 @@
 <section class="band-white">
     <div class="mx-auto max-w-6xl px-4 pt-12 pb-6 lg:px-8">
         <p class="text-xs uppercase tracking-[0.25em] text-plum">ACA</p>
-        <h1 class="font-serif text-5xl mt-2 md:text-6xl">{{ __('Contact') }}</h1>
+        <h1 class="font-serif text-4xl mt-2 md:text-5xl">{{ __('Contact') }}</h1>
         <p class="mt-4 max-w-2xl text-ink/70">{{ __('Une question pour le comité, un partenariat, un passage presse : écrivez-nous.') }}</p>
     </div>
 </section>
@@ -16,7 +16,7 @@
                 <div>
                     <span class="mark-bar"></span>
                     <p class="section-kicker">{{ __('Accueil') }}</p>
-                    <h2 class="font-serif text-4xl mt-2">{{ __('Écrire au comité') }}</h2>
+                    <h2 class="font-serif text-3xl mt-2">{{ __('Écrire au comité') }}</h2>
                     <p class="mt-3 text-ink/70">{{ __('Le secrétariat relit chaque message et revient vers vous.') }}</p>
                 </div>
                 <div class="grid gap-4 lg:grid-rows-3">
@@ -53,7 +53,7 @@
             <div>
                 <span class="mark-bar"></span>
                 <p class="section-kicker">{{ __('Depuis 1911') }}</p>
-                <h2 class="font-serif text-4xl md:text-5xl mt-2">{{ __('Le commerce athois, défendu ensemble.') }}</h2>
+                <h2 class="font-serif text-3xl md:text-4xl mt-2">{{ __('Le commerce athois, défendu ensemble.') }}</h2>
                 <p class="mt-5 max-w-xl text-ink/75">{{ __('Fondée en 1911, l’Association des Commerçants et Artisans d’Ath défend le commerce de proximité, anime le centre-ville et accueille chaque année la Ducasse.') }}</p>
                 <a href="{{ aca_url('join') }}" class="btn-plum mt-7">{{ __('Devenir membre') }}</a>
             </div>
@@ -75,7 +75,7 @@
 <section class="band-alt">
     <div class="mx-auto max-w-6xl px-4 section-space lg:px-8">
         <span class="mark-bar"></span>
-        <h2 class="font-serif text-4xl">{{ __('Le comité') }}</h2>
+        <h2 class="font-serif text-3xl">{{ __('Le comité') }}</h2>
         <p class="mt-2 max-w-xl text-ink/70">{{ __('Les commerçants n’ont pas de compte : une suggestion de modification suffit pour tenir une fiche à jour.') }}</p>
         <div class="mt-8 grid gap-4 md:grid-cols-2 md:max-w-3xl">
             @foreach ($committee as $member)
