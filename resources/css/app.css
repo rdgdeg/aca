@@ -8,8 +8,8 @@
 @source '../../vendor/livewire/livewire/dist/**/*.js';
 
 @theme {
-    --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-    --font-serif: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: var(--font-montserrat, 'Montserrat'), ui-sans-serif, system-ui, sans-serif;
+    --font-serif: var(--font-montserrat, 'Montserrat'), ui-sans-serif, system-ui, sans-serif;
     --color-cream: #FFFFFF;
     --color-ink: #1A1024;
     --color-plum: #6B2B91;

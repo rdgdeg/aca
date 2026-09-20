@@ -334,6 +334,16 @@ class PublicSiteTest extends TestCase
             ->assertSee('text-center md:grid-cols-4 md:text-left', false);
     }
 
+    public function test_public_layout_loads_the_montserrat_webfont(): void
+    {
+        $html = $this->get('/fr')->assertOk()->getContent();
+
+        $this->assertStringContainsString('@font-face', $html);
+        $this->assertStringContainsString('font-family: "Montserrat"', $html);
+        $this->assertStringContainsString('type="font/woff2"', $html);
+        $this->assertStringContainsString('as="font"', $html);
+    }
+
     public function test_home_search_keeps_the_submit_label_inside_the_bar(): void
     {
         $this->get('/fr')

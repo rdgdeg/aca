@@ -22,6 +22,7 @@
         <link rel="alternate" hreflang="{{ $lang }}" href="{{ $url }}">
     @endforeach
     <script>document.documentElement.classList.add('js');</script>
+    @fonts
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     @livewireStyles
