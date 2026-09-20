@@ -40,4 +40,27 @@ class OpeningStatusTest extends TestCase
         $closed = $service->for($merchant, Carbon::parse('2026-09-16 20:00', 'Europe/Brussels'));
         $this->assertFalse($closed['open']);
     }
+
+    public function test_holiday_closed_merchant_is_closed_on_easter_monday(): void
+    {
+        $merchant = Merchant::query()->create([
+            'name' => 'Férié',
+            'slug' => ['fr' => 'ferie'],
+            'status' => 'published',
+            'holiday_closed' => true,
+        ]);
+        OpeningHour::query()->create([
+            'merchant_id' => $merchant->id,
+            'weekday' => 1,
+            'opens_at' => '09:00',
+            'closes_at' => '18:00',
+        ]);
+        $merchant->load('openingHours', 'closures');
+
+        $service = new OpeningStatus;
+        $holiday = $service->for($merchant, Carbon::parse('2026-04-06 11:00', 'Europe/Brussels'));
+
+        $this->assertFalse($holiday['open']);
+        $this->assertSame('holiday', $holiday['key']);
+    }
 }
