@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="ACA Ath">
+  <circle cx="120" cy="120" r="116" fill="#FAF7F2" stroke="#5B3A7A" stroke-width="4"/>
+  <circle cx="120" cy="120" r="104" fill="none" stroke="#C4A035" stroke-width="2"/>
+  <path d="M120 54 L168 168 H148 L138 140 H102 L92 168 H72 Z M120 86 L110 126 H130 Z" fill="#5B3A7A"/>
+  <g transform="translate(78 148)">
+    <path d="M8 8 h20 l3 22 h-26 z" fill="#5B3A7A"/>
+    <path d="M14 8 q4-10 10 0" fill="none" stroke="#5B3A7A" stroke-width="2"/>
+    <path d="M34 10 h22 l3 20 h-28 z" fill="#C45B8A"/>
+    <path d="M40 10 q4-10 10 0" fill="none" stroke="#C45B8A" stroke-width="2"/>
+    <path d="M60 12 h20 l3 18 h-26 z" fill="#C4A035"/>
+    <path d="M66 12 q4-9 10 0" fill="none" stroke="#C4A035" stroke-width="2"/>
+  </g>
+  <path id="circle" d="M120,28 a92,92 0 1,1 -0.01,0" fill="none"/>
+  <text fill="#5B3A7A" font-size="11" font-family="Georgia, serif" letter-spacing="2">
+    <textPath href="#circle" startOffset="18%">ASSOCIATION DES COMMERÇANTS ET ARTISANS D'ATH · 1911</textPath>
+  </text>
+</svg>

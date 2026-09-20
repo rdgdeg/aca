@@ -1,0 +1,102 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@theme {
+    --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+.fi-body,
+.fi-simple-layout,
+.fi-simple-page-content,
+.fi-page {
+    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+.fi-body {
+    background: #f6f1e8;
+}
+
+.fi-simple-layout {
+    background:
+        radial-gradient(circle at top left, rgba(240, 196, 0, 0.18), transparent 42%),
+        linear-gradient(165deg, #4a1c68 0%, #6b2b91 58%, #3d1756 100%);
+}
+
+.fi-simple-main {
+    background: transparent;
+}
+
+.fi-simple-header-heading {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.fi-logo {
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.fi-topbar {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(107, 43, 145, 0.08);
+}
+
+.fi-sidebar {
+    background: #fff;
+}
+
+.fi-sidebar-header {
+    background: #fff;
+}
+
+.fi-sidebar-nav {
+    padding-top: 1.25rem;
+}
+
+.fi-sidebar-group-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b2b91;
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    background: #f3eaf8;
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-sidebar-item-label,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-icon {
+    color: #6b2b91;
+}
+
+.fi-header-heading {
+    color: #4a1c68;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.fi-section,
+.fi-ta,
+.fi-wi-stats-overview-stat,
+.fi-fo-wizard-header,
+.fi-main > section {
+    border-radius: 1.1rem;
+}
+
+.fi-wi-stats-overview-stat {
+    box-shadow: 0 10px 30px rgba(74, 28, 104, 0.06);
+}
+
+.fi-btn-color-primary {
+    font-weight: 600;
+}
+
+.fi-breadcrumbs {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
