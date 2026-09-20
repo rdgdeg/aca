@@ -17,7 +17,7 @@ RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
 
 WORKDIR /app
 
-FROM base AS dependencies
+FROM base AS vendor
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 COPY composer.json composer.lock ./
@@ -29,8 +29,7 @@ RUN composer install \
     --optimize-autoloader \
     --prefer-dist
 
-COPY . .
-COPY --from=assets /app/public/build /app/public/build
+FROM vendor AS data
 
 ENV APP_ENV=production \
     APP_DEBUG=false \
@@ -45,23 +44,37 @@ ENV APP_ENV=production \
     BROADCAST_CONNECTION=log \
     MAIL_MAILER=log
 
+COPY artisan ./
+COPY app ./app
+COPY bootstrap ./bootstrap
+COPY config ./config
+COPY database ./database
+COPY lang ./lang
+COPY routes ./routes
+
 RUN mkdir -p \
         storage/framework/cache/data \
         storage/framework/sessions \
         storage/framework/views \
         storage/logs \
         bootstrap/cache \
-        database \
     && touch database/database.sqlite \
-    && composer dump-autoload --no-dev --classmap-authoritative \
+    && composer dump-autoload --no-dev --optimize \
     && php artisan migrate --force --no-interaction \
-    && php artisan db:seed --force --no-interaction \
-    && php artisan storage:link \
+    && php artisan db:seed --force --no-interaction
+
+FROM data AS app
+
+COPY resources ./resources
+COPY public ./public
+COPY --from=assets /app/public/build /app/public/build
+
+RUN php artisan storage:link \
     && php artisan event:cache
 
 FROM base AS runtime
 
-COPY --from=dependencies --chown=www-data:www-data /app /app
+COPY --from=app --chown=www-data:www-data /app /app
 COPY --chown=www-data:www-data Caddyfile /etc/frankenphp/Caddyfile
 
 RUN setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp \
